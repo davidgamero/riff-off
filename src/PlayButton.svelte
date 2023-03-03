@@ -3,7 +3,7 @@
 </script>
 
 <div class="bg-red-500 p-10 rounded-md">
-	<h1 class:upsidedown={flipped} class="text-center text-white text-2xl">Got a Word!</h1>
+	<h1 class:upsidedown={flipped} class="text-center text-white text-2xl">Got a Song!</h1>
 </div>
 
 <style>
