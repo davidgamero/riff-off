@@ -1,0 +1,15 @@
+{
+  "tasks": {
+    "dev-server": {
+      "name": "Start Dev Server",
+      "command": "vite dev",
+      // With the `preview` field set, the GitHub App will also add a link
+      // to that preview to PRs, and it will become part of a GitHub
+      // deployment:
+      "preview": {
+        "port": 5173,
+        "prLink": "direct"
+      }
+    }
+  }
+}
