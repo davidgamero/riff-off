@@ -1,6 +1,5 @@
 <script lang="ts">
 	import RadioSetting from './RadioSetting.svelte';
-	import Button from './Button.svelte';
 
 	let selectedDifficulty: string;
 	let selectedDuration: string;
@@ -19,4 +18,3 @@
 	<RadioSetting name="Duration" values={['30s', '60s', '90s']} bind:selected={selectedDuration} />
 	<RadioSetting name="Goal" values={['5', '10', '15']} bind:selected={selectedGoal} />
 </ul>
-<Button link="/play" text="Start a new game" />
