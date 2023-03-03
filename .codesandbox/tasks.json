@@ -2,7 +2,7 @@
   "tasks": {
     "dev-server": {
       "name": "Start Dev Server",
-      "command": "vite dev",
+      "command": "npm run dev",
       // With the `preview` field set, the GitHub App will also add a link
       // to that preview to PRs, and it will become part of a GitHub
       // deployment:
