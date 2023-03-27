@@ -8,8 +8,8 @@
 	}
 </script>
 
-<div class="bg-red-500 p-10 rounded-md">
-	<h1 on:click={handleClick} class:upsidedown={flipped} class="text-center text-white text-2xl">
+<div on:click={handleClick} class="bg-red-500 p-10 rounded-md">
+	<h1 class:upsidedown={flipped} class="text-center text-white text-2xl">
 		{#if score > 0}
 			{score}
 		{:else}
