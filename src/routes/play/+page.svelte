@@ -9,7 +9,7 @@
 	let teamRedScore: number = 0;
 	let teamBlueScore: number = 0;
 	let currentWord: string;
-	let totalSeconds: number = 5.0;
+	let totalSeconds: number = 60.0;
 	let currentSeconds: number = totalSeconds;
 	let isPaused = false;
 	let isPlayer1Turn = true;
