@@ -4,6 +4,7 @@
 	export let timeSeconds: number;
 	export let score1: number;
 	export let score2: number;
+	export let currentWord: string;
 
 	$: angle = 360 * progress;
 
@@ -17,11 +18,11 @@
 
 <div
 	id="progress-circle"
-	class="flex flex-col justify-center text-center m-auto"
+	class="flex flex-col justify-center text-center p-10"
 	style={cssVarStyles}
 >
-	<h2>Time: {timeSeconds}</h2>
-	<h2>Score: {score1}: {score2}</h2>
+	<h2 class="pt-3 border-t-2 border-gray-600" style="transform: scale(-1, -1)">{currentWord}</h2>
+	<h2 class="mt-3">{currentWord}</h2>
 </div>
 
 <style>
@@ -31,6 +32,6 @@
 		width: 200px;
 		height: 200px;
 		will-change: transform;
-		transition: all 500ms ease-in;
+		transition: all 1000ms ease-in;
 	}
 </style>
