@@ -3,8 +3,10 @@
 	import Fa from 'svelte-fa';
 	import { faPauseCircle, faCog } from '@fortawesome/free-solid-svg-icons';
 	import CircleProgressBar from '../../CircleProgressBar.svelte';
+	import {getWordsFromStorage, recordWordToStorage} from '../../WordLog.svelte';
 	import { onMount } from 'svelte';
 	import wordlist from '../../words.json';
+	
 	import {page} from '$app/stores'
 	import {goto} from '$app/navigation'
 
@@ -21,9 +23,12 @@
 	let currentBreakSeconds = 4;
 	
 	const goal: number = Number($page.url.searchParams.get('goal'))
-	const wordlistLength = wordlist.length;
 	function getRandomWord() {
-		return wordlist[Math.floor(Math.random() * wordlistLength)];
+		let localStorageList: string = getWordsFromStorage();
+		let filteredWordList: string[] = wordlist.filter((w)=> !localStorageList.includes(w))
+		let word: string = filteredWordList[Math.floor(Math.random() * filteredWordList.length)];
+		recordWordToStorage(word, 5)
+		return word
 	}
 
 	$: progress = (currentSeconds * 1.0) / totalSeconds;
@@ -44,6 +49,7 @@
 		setInterval(() => {
 			if (!isPaused && !onBreak && currentSeconds > 0) {
 				currentSeconds -= 1;
+			return
 			}
 			if (currentSeconds == 0 && !isPaused && !onBreak) {
 				// somebody missed a word
@@ -61,10 +67,12 @@
 					}
 				}
 				startBreak();
+				return
 			}
 			if (onBreak && currentBreakSeconds > 0 && !isPaused) {
 				currentBreakSeconds -= 1;
 				currentWord = currentBreakSeconds.toString();
+				return
 			}
 			if (onBreak && currentBreakSeconds == 0) {
 				onBreak = false;
@@ -72,6 +80,7 @@
 				currentWord = getRandomWord();
 				resetTime();
 				isPlayer1Turn = !isPlayer1Turn;
+				return
 			}
 		}, 1000);
 	});
