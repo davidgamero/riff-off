@@ -5,11 +5,13 @@
 	import CircleProgressBar from '../../CircleProgressBar.svelte';
 	import { onMount } from 'svelte';
 	import wordlist from '../../words.json';
+	import {page} from '$app/stores'
+	import {goto} from '$app/navigation'
 
 	let teamRedScore: number = 0;
 	let teamBlueScore: number = 0;
 	let currentWord: string;
-	let totalSeconds: number = 60.0;
+	const totalSeconds: number = parseFloat($page.url.searchParams.get('duration'))
 	let currentSeconds: number = totalSeconds;
 	let isPaused = false;
 	let isPlayer1Turn = true;
@@ -17,7 +19,8 @@
 
 	let breakSeconds = 4;
 	let currentBreakSeconds = 4;
-
+	
+	const goal: number = Number($page.url.searchParams.get('goal'))
 	const wordlistLength = wordlist.length;
 	function getRandomWord() {
 		return wordlist[Math.floor(Math.random() * wordlistLength)];
@@ -46,8 +49,16 @@
 				// somebody missed a word
 				if (isPlayer1Turn) {
 					teamRedScore += 1;
+					if (teamRedScore == goal) {
+						// victory screen
+						goto("/win?winner=red")
+					}
 				} else {
 					teamBlueScore += 1;
+					if (teamBlueScore == goal) {
+						//victory screen
+						goto("/win?winner=blue")
+					}
 				}
 				startBreak();
 			}

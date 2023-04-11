@@ -1,9 +1,9 @@
 <script lang="ts">
 	import RadioSetting from './RadioSetting.svelte';
 
-	let selectedDifficulty: string;
-	let selectedDuration: string;
-	let selectedGoal: string;
+	export let selectedDifficulty: string;
+	export let selectedDuration: string;
+	export let selectedGoal: string;
 </script>
 
 <ul class="grid w-full gap-6 md:grid-cols-1">
