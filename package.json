@@ -37,6 +37,8 @@
 	"type": "module",
 	"dependencies": {
 		"@fortawesome/free-solid-svg-icons": "^6.3.0",
+		"canvas-confetti": "^1.6.0",
+		"require": "^2.4.20",
 		"svelte-fa": "^3.0.3"
 	}
 }
