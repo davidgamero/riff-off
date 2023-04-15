@@ -19,6 +19,9 @@
 	let isPaused = false;
 	let isPlayer1Turn = true;
 	let onBreak = false;
+	let newGoal: string;
+	let newDuration: string;
+	let newDifficulty: string;
 
 	let breakSeconds = 4;
 	let currentBreakSeconds = 4;
@@ -138,6 +141,6 @@
 	/>
 </div>
 
-<Modal bind:showModal>
-    <Settings />
+<Modal bind:newGoal={newGoal} bind:newDuration={newDuration} bind:newDifficulty={newDifficulty} bind:showModal>
+    <Settings bind:selectedGoal={newGoal} bind:selectedDuration={newDuration} bind:selectedDifficulty={newDifficulty}/>
 </Modal>

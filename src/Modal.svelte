@@ -3,6 +3,10 @@
 	import Fa from 'svelte-fa';
 	
 	export let showModal: boolean;
+	
+	export let newGoal: string;
+	export let newDuration: string;
+	export let newDifficulty: string;
 	let dialog; // HTMLDialogElement
 
 	$: if (dialog && showModal) dialog.showModal();
@@ -22,6 +26,9 @@
 		</button>
 		<slot />
 		<hr />
+		<a href="/play?duration={newDuration}&difficulty={newDifficulty}&goal={newGoal}" class="block text-center font-pacifico w-full my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+			Submit
+		</a>
 		<a href="/" class="block flex justify-center font-pacifico w-full my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
 			<Fa icon={faHome} size="1x" color="white" />
 		</a>
