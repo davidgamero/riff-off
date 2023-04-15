@@ -7,9 +7,6 @@
 </script>
 
 <ul class="grid w-full gap-6 md:grid-cols-1">
-	<p>Selected Difficulty = {selectedDifficulty}</p>
-	<p>Selected Duration = {selectedDuration}</p>
-	<p>Selected Goal = {selectedGoal}</p>
 	<RadioSetting
 		name="Difficulty"
 		values={['Easy', 'Medium', 'Hard']}

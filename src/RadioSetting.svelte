@@ -4,7 +4,7 @@
 	export let selected: string = values[0];
 </script>
 
-<h2 class="font-sriracha text-center">{name}</h2>
+<h2 class="text-center">{name}</h2>
 <div class="flex justify-around">
 	{#each values as value}
 		<li class="grow">
