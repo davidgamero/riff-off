@@ -6,7 +6,8 @@
 	import {getWordsFromStorage, recordWordToStorage} from '../../WordLog.svelte';
 	import { onMount } from 'svelte';
 	import wordlist from '../../words.json';
-	
+	import Settings from '../../Settings.svelte';
+	import Modal from '../../Modal.svelte';
 	import {page} from '$app/stores'
 	import {goto} from '$app/navigation'
 
@@ -23,6 +24,13 @@
 	let currentBreakSeconds = 4;
 	
 	const goal: number = Number($page.url.searchParams.get('goal'))
+	
+	let showModal: boolean = false;
+	function showSettingsModal() {
+		console.log('clicked');
+		showModal = true;
+	}
+	
 	function getRandomWord() {
 		let localStorageList: string = getWordsFromStorage();
 		let filteredWordList: string[] = wordlist.filter((w)=> !localStorageList.includes(w))
@@ -119,9 +127,9 @@
 				timeSeconds={currentSeconds}
 			/>
 		</button>
-		<div>
+		<button on:click={showSettingsModal}>
 			<Fa icon={faCog} size="3x" color="gray" />
-		</div>
+		</button>
 	</div>
 	<PlayButton
 		score={teamBlueScore}
@@ -129,3 +137,7 @@
 		isMyTurn={isPlayer1Turn && !isPaused && !onBreak}
 	/>
 </div>
+
+<Modal bind:showModal>
+    <Settings />
+</Modal>
