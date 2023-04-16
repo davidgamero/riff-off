@@ -43,6 +43,13 @@ lyrics_cache = load_lyrics_cache()
 lyrics_dict = {}
 
 
+def simplify_track_name(track_name):
+    no_parentheses = track_name.split("(")[0]
+    no_brackets = no_parentheses.split("[")[0]
+    no_hyphen = no_brackets.split("-")[0]
+    return no_hyphen.strip()
+
+
 def parse_tracks_to_cache(tracks):
 
     for idx, item in enumerate(tracks['items']):
@@ -61,8 +68,13 @@ def parse_tracks_to_cache(tracks):
             while tries < 5 and lyrics == "":
                 tries += 1
                 try:
+                    track_name = track['name']
+                    if (tries > 3):
+                        track_name = simplify_track_name(track_name)
+                        print("Simplified track name to ", track_name)
+
                     genius_song = genius.search_song(
-                        track['name'], track['artists'][0]['name'])
+                        track_name, track['artists'][0]['name'])
                     lyrics = genius_song.lyrics
                     lyrics_cache[track_id] = lyrics
                     save_lyrics_cache()
