@@ -3,11 +3,11 @@
 	export let onClick: () => void;
 	export let score: number = 0;
 	export let isMyTurn: boolean = false;
-
+	const btnColor = flipped ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-500 hover:bg-blue-600';
 	const start: string = 'Got a Song!';
 </script>
 
-<button on:click={onClick} class="p-10 rounded-md {isMyTurn ? 'bg-red-500' : 'bg-gray-400'}">
+<button on:click={onClick} class="p-10 rounded-md {isMyTurn ? btnColor : 'bg-gray-400'}">
 	<h1 class:upsidedown={flipped} class="text-center text-white text-2xl ">
 		{#if score > 0}
 			{score}
