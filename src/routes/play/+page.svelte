@@ -14,7 +14,8 @@
 	let teamRedScore: number = 0;
 	let teamBlueScore: number = 0;
 	let currentWord: string;
-	const totalSeconds: number = parseFloat($page.url.searchParams.get('duration'))
+	let duration: string = $page.url.searchParams.get('duration')
+	$: totalSeconds = parseFloat(duration)
 	let currentSeconds: number = totalSeconds;
 	let isPaused = false;
 	let isPlayer1Turn = true;
@@ -26,11 +27,11 @@
 	let breakSeconds = 4;
 	let currentBreakSeconds = 4;
 	
-	const goal: number = Number($page.url.searchParams.get('goal'))
+	let queryGoal: string = $page.url.searchParams.get('goal')
+	$: goal = Number(queryGoal)
 	
 	let showModal: boolean = false;
 	function showSettingsModal() {
-		console.log('clicked');
 		showModal = true;
 	}
 	
@@ -141,6 +142,6 @@
 	/>
 </div>
 
-<Modal bind:newGoal={newGoal} bind:newDuration={newDuration} bind:newDifficulty={newDifficulty} bind:showModal>
-    <Settings bind:selectedGoal={newGoal} bind:selectedDuration={newDuration} bind:selectedDifficulty={newDifficulty}/>
+<Modal bind:showModal>
+    <Settings bind:selectedGoal={queryGoal} bind:selectedDuration={duration} bind:selectedDifficulty={newDifficulty}/>
 </Modal>
