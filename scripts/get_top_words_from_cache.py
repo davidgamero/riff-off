@@ -1,4 +1,10 @@
+import json
 import pickle
+
+words_file_path = "words.json"
+
+
+exclude_words = ["verse", "chorus", "bridge", "feat"]
 
 
 def load_lyrics_cache():
@@ -17,7 +23,7 @@ def remove_non_letters(lyrics):
     return "".join([char for char in lyrics if char.isalpha() or char == " " or char == "\n"])
 
 
-words_allow_list_file = open("./scripts/10k-english-no-swears.txt", "r")
+words_allow_list_file = open("./10k-english-no-swears.txt", "r")
 allowed_words = set()
 for line in words_allow_list_file:
     allowed_words.add(line.strip())
@@ -31,7 +37,7 @@ for track_id, lyrics in lyrics_cache.items():
     word_set = set()
     for word in lyrics.split():
         word = word.lower()
-        if word in word_set or word not in allowed_words:
+        if word in word_set or word not in allowed_words or word in exclude_words:
             continue
         word_set.add(word)
 
@@ -51,5 +57,13 @@ for word, count in word_counts.items():
 
 sorted_word_counts = sorted(
     filtered_word_counts.items(), key=lambda item: item[1], reverse=True)
-for word, count in sorted_word_counts[:100]:
+
+sorted_word_counts = [(word, count) for word,
+                      count in sorted_word_counts if count > 40]
+for word, count in sorted_word_counts:
     print(word, count)
+
+with open(words_file_path, "w") as words_file:
+    words = [word for word, count in sorted_word_counts]
+    words_as_json = json.dumps(words)
+    words_file.write(words_as_json)
