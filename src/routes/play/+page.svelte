@@ -14,7 +14,7 @@
 	let teamRedScore: number = 0;
 	let teamBlueScore: number = 0;
 	let currentWord: string;
-	let duration: string = $page.url.searchParams.get('duration')
+	let queryDuration: string = $page.url.searchParams.get('duration')
 	$: totalSeconds = parseFloat(duration)
 	let currentSeconds: number = totalSeconds;
 	let isPaused = false;
@@ -143,5 +143,5 @@
 </div>
 
 <Modal bind:showModal>
-    <Settings bind:selectedGoal={queryGoal} bind:selectedDuration={duration} bind:selectedDifficulty={newDifficulty}/>
+    <Settings bind:selectedGoal={queryGoal} bind:selectedDuration={queryDuration} bind:selectedDifficulty={newDifficulty}/>
 </Modal>
