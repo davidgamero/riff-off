@@ -14,8 +14,8 @@
 	let teamRedScore: number = 0;
 	let teamBlueScore: number = 0;
 	let currentWord: string;
-	let queryDuration: string = $page.url.searchParams.get('duration')
-	$: totalSeconds = parseFloat(duration)
+	let queryDuration: string = $page.url.searchParams.get('duration') || '30'
+	$: totalSeconds = parseFloat(queryDuration)
 	let currentSeconds: number = totalSeconds;
 	let isPaused = false;
 	let isPlayer1Turn = true;
@@ -27,7 +27,7 @@
 	let breakSeconds = 4;
 	let currentBreakSeconds = 4;
 	
-	let queryGoal: string = $page.url.searchParams.get('goal')
+	let queryGoal: string = $page.url.searchParams.get('goal') || '5'
 	$: goal = Number(queryGoal)
 	
 	let showModal: boolean = false;
