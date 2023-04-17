@@ -1,6 +1,9 @@
 # Riff Off: The Sing Along Battle Game
 
-[[_TOC_]]
+### Table of Contents
+1. [How it works](#how-it-works)
+2. [How to play](#how-to-play)
+3. [Demo](#demo)
 
 Face off against your friends as you compete to sing at least 4 bars of randomized songs in this team-based battle of music knowledge!
 
