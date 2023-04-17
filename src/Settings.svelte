@@ -1,9 +1,16 @@
 <script lang="ts">
 	import RadioSetting from './RadioSetting.svelte';
+	import { page } from '$app/stores';
 
 	export let selectedDifficulty: string;
 	export let selectedDuration: string;
-	export let selectedGoal: string;
+	let selectedGoal: string = '5';
+	export let goal: number;
+	$: goal = Number(selectedGoal);
+	$: goal,
+		(function () {
+			$page.url.searchParams.set('goal', goal.toString());
+		})();
 </script>
 
 <ul class="grid w-full gap-6 md:grid-cols-1">

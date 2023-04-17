@@ -1,13 +1,13 @@
-<script lang='ts'>
+<script lang="ts">
 	import { faHome, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
-	
+
 	export let showModal: boolean;
 	// export let newGoal: string;
 	// export let newDifficulty: string;
 	// export let newDuration: string;
 
-	let dialog; // HTMLDialogElement
+	let dialog: HTMLDialogElement; // HTMLDialogElement
 
 	$: if (dialog && showModal) dialog.showModal();
 </script>
@@ -26,10 +26,16 @@
 		</button>
 		<slot />
 		<hr />
-		<button on:click={() => dialog.close()} class="block text-center font-pacifico w-full my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+		<button
+			on:click={() => dialog.close()}
+			class="block text-center font-pacifico w-full my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+		>
 			Submit
 		</button>
-		<a href="/" class="block flex justify-center font-pacifico w-full my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+		<a
+			href="/"
+			class="block flex justify-center font-pacifico w-full my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+		>
 			<Fa icon={faHome} size="1x" color="white" />
 		</a>
 	</div>

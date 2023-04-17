@@ -1,8 +1,8 @@
-<script lang='ts'>
+<script lang="ts">
 	import Button from '../Button.svelte';
 	import Settings from '../Settings.svelte';
-	
-	let goal: string;
+
+	let goal: number;
 	let duration: string;
 	let difficulty: string;
 </script>
@@ -10,6 +10,9 @@
 <div class="flex min-h-screen flex-col items-center justify-center py-2">
 	<h1 class="font-pacifico text-4xl font-bold">Welcome to Riff Off!</h1>
 
-	<Settings bind:selectedGoal={goal} bind:selectedDuration={duration} bind:selectedDifficulty={difficulty}  />
-	<Button link="/play?duration={duration}&difficulty={difficulty}&goal={goal}" text="Start a new game" />
+	<Settings bind:goal bind:selectedDuration={duration} bind:selectedDifficulty={difficulty} />
+	<Button
+		link="/play?duration={duration}&difficulty={difficulty}&goal={goal}"
+		text="Start a new game"
+	/>
 </div>
