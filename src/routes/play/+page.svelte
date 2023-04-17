@@ -1,7 +1,7 @@
 <script lang="ts">
 	import PlayButton from '../../PlayButton.svelte';
 	import Fa from 'svelte-fa';
-	import { faPauseCircle, faCog } from '@fortawesome/free-solid-svg-icons';
+	import { faPauseCircle, faCog, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 	import CircleProgressBar from '../../CircleProgressBar.svelte';
 	import { getWordsFromStorage, recordWordToStorage } from '../../WordLog.svelte';
 	import { onMount } from 'svelte';
@@ -120,7 +120,11 @@
 	/>
 	<div class="flex justify-between items-center m-4">
 		<button on:click={togglePause}>
-			<Fa icon={faPauseCircle} size="3x" color="gray" />
+			<Fa
+				icon={isPaused ? faPlayCircle : faPauseCircle}
+				size="3x"
+				class="text-gray-500 hover:text-gray-600"
+			/>
 		</button>
 		<button on:click={resetTime}>
 			<CircleProgressBar
@@ -129,6 +133,7 @@
 				score1={teamBlueScore}
 				score2={teamRedScore}
 				timeSeconds={currentSeconds}
+				{isPlayer1Turn}
 			/>
 		</button>
 		<button on:click={showSettingsModal}>

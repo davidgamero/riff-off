@@ -5,13 +5,19 @@
 	export let score1: number;
 	export let score2: number;
 	export let currentWord: string;
-
+	export let isPlayer1Turn: boolean;
+	const player1Color = '#dc2626';
+	const player2Color = '#3b82f6';
+	$: [firstColor, secondColor] = ((colors) => (isPlayer1Turn ? colors : colors.reverse()))([
+		player1Color,
+		player2Color
+	]);
 	$: angle = 360 * progress;
 
 	// Adapt the logic according to the approach
 	$: background = `radial-gradient(white 50%, transparent 51%),
     conic-gradient(transparent 0deg ${angle}deg, gainsboro ${angle}deg 360deg),
-    conic-gradient(red 0deg, blue);`;
+		conic-gradient(${firstColor}, 100grad, ${secondColor});`;
 
 	$: cssVarStyles = `--background:${background}`;
 </script>
