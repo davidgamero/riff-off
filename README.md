@@ -30,4 +30,6 @@ See your points rack up in your button so you never lose track. And don't worry 
 
 ## Demo
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pTflI4q-qZc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Riff Off Demo](riffoffthumbnail.png)](https://youtu.be/pTflI4q-qZc)
+
+Click on the image or on [this link](https://youtu.be/pTflI4q-qZc) to see the demo!
