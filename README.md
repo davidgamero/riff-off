@@ -1,5 +1,7 @@
 # Riff Off: The Sing Along Battle Game
 
+[Play the Game!](https://riffoff.vercel.app/)
+
 ### Table of Contents
 1. [How it works](#how-it-works)
 2. [How to play](#how-to-play)
