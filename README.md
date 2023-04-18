@@ -29,3 +29,7 @@ If your button is highlighted, it's your turn to sing! Your team has to come up 
 See your points rack up in your button so you never lose track. And don't worry - if you decide you need more time, a larger victory goal or easier words, you can always click on the settings icon to change your game the way _you_ want to play it.
 
 ## Demo
+
+[![Riff Off Demo](riffoffthumbnail.png)](https://youtu.be/pTflI4q-qZc)
+
+Click on the image or on [this link](https://youtu.be/pTflI4q-qZc) to see the demo!
