@@ -2,7 +2,6 @@
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import * as confetti from 'canvas-confetti';
-	import Button from '../../Button.svelte';
 
 	const winner: string = $page.url.searchParams.get('winner') || 'no-winner';
 	let color = winner;
@@ -47,11 +46,6 @@
 			confettiBursts++;
 		}, delay);
 	}
-
-	// onMount(() => {
-	//     setConfettiIntervals(1000, 3);
-
-	// });
 </script>
 
 <canvas class={shouldDisappear} id="canvas" />

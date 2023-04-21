@@ -1,12 +1,8 @@
-<script lang='ts'>
+<script lang="ts">
 	import { faHome, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
-	
-	export let showModal: boolean;
-	// export let newGoal: string;
-	// export let newDifficulty: string;
-	// export let newDuration: string;
 
+	export let showModal: boolean;
 	let dialog; // HTMLDialogElement
 
 	$: if (dialog && showModal) dialog.showModal();
@@ -18,18 +14,24 @@
 	on:close={() => (showModal = false)}
 	on:click|self={() => dialog.close()}
 >
-	<div on:click|stopPropagation>
+	<div on:click|stopPropagation class="dark:bg-gray-900">
 		<slot name="header" />
 		<!-- svelte-ignore a11y-autofocus -->
 		<button autofocus on:click={() => dialog.close()}>
-			<Fa icon={faWindowClose} size="2x" color="blue" />
+			<Fa icon={faWindowClose} size="2x" class="text-blue-500" />
 		</button>
 		<slot />
-		<hr />
-		<button on:click={() => dialog.close()} class="block text-center font-pacifico w-full my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+
+		<button
+			on:click={() => dialog.close()}
+			class="block text-center font-pacifico w-full my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+		>
 			Submit
 		</button>
-		<a href="/" class="block flex justify-center font-pacifico w-full my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+		<a
+			href="/"
+			class="block flex justify-center font-pacifico w-full my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+		>
 			<Fa icon={faHome} size="1x" color="white" />
 		</a>
 	</div>

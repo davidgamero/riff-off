@@ -20,8 +20,6 @@
 	let isPaused = false;
 	let isPlayer1Turn = true;
 	let onBreak = false;
-	let newGoal: string;
-	let newDuration: string;
 	let newDifficulty: string;
 
 	let breakSeconds = 4;
@@ -111,7 +109,7 @@
 	}
 </script>
 
-<div class="h-full flex flex-col justify-between align-middle p-6">
+<div class="h-full flex flex-col justify-between align-middle p-6 dark:bg-gray-900">
 	<PlayButton
 		flipped={true}
 		score={teamRedScore}
