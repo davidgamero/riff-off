@@ -7,7 +7,10 @@
 	const start: string = 'Got a Song!';
 </script>
 
-<button on:click={onClick} class="p-10 rounded-md {isMyTurn ? btnColor : 'bg-gray-400'}">
+<button
+	on:click={onClick}
+	class="p-10 rounded-md {isMyTurn ? btnColor : 'bg-gray-400 dark:bg-gray-600'}"
+>
 	<h1 class:upsidedown={flipped} class="text-center text-white text-2xl ">
 		{#if score > 0}
 			{score}

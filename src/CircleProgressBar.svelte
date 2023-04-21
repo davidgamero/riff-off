@@ -1,4 +1,5 @@
 <script lang="ts">
+	import MediaQuery from 'svelte-media-queries';
 	// from https://svelte.dev/repl/f1437286b08d4890b9207180868ee37e?version=3.46.4
 	export let progress: number;
 	export let timeSeconds: number;
@@ -13,22 +14,27 @@
 		player2Color
 	]);
 	$: angle = 360 * progress;
+	let matches;
 
 	// Adapt the logic according to the approach
-	$: background = `radial-gradient(white 50%, transparent 51%),
+	$: background = `radial-gradient(${matches ? 'rgb(17 24 39)' : 'white'} 50%, transparent 51%),
     conic-gradient(transparent 0deg ${angle}deg, gainsboro ${angle}deg 360deg),
 		conic-gradient(${firstColor}, 100grad, ${secondColor});`;
 
 	$: cssVarStyles = `--background:${background}`;
 </script>
 
+<MediaQuery query="(prefers-color-scheme: dark)" bind:matches />
+
 <div
 	id="progress-circle"
-	class="flex flex-col justify-center text-center p-10"
+	class="flex flex-col justify-center text-center p-10 dark:bg-gray-900"
 	style={cssVarStyles}
 >
-	<h2 class="pt-3 border-t-2 border-gray-600" style="transform: scale(-1, -1)">{currentWord}</h2>
-	<h2 class="mt-3">{currentWord}</h2>
+	<h2 class="pt-3 border-t-2 border-gray-600 dark:text-gray-200" style="transform: scale(-1, -1)">
+		{currentWord}
+	</h2>
+	<h2 class="mt-3 dark:text-gray-200">{currentWord}</h2>
 </div>
 
 <style>

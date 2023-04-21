@@ -123,7 +123,7 @@
 			<Fa
 				icon={isPaused ? faPlayCircle : faPauseCircle}
 				size="3x"
-				class="text-gray-500 hover:text-gray-600"
+				class="text-gray-500 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-400"
 			/>
 		</button>
 		<button on:click={resetTime}>
@@ -137,7 +137,11 @@
 			/>
 		</button>
 		<button on:click={showSettingsModal}>
-			<Fa icon={faCog} size="3x" color="gray" />
+			<Fa
+				icon={faCog}
+				size="3x"
+				class="text-gray-500 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-400"
+			/>
 		</button>
 	</div>
 	<PlayButton
