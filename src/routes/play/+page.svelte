@@ -109,14 +109,14 @@
 	}
 </script>
 
-<div class="h-full flex flex-col justify-between align-middle p-6 dark:bg-gray-900">
+<div class="h-full flex flex-col justify-between align-middle dark:bg-gray-900">
 	<PlayButton
 		flipped={true}
 		score={teamRedScore}
 		onClick={p2Click}
 		isMyTurn={!isPlayer1Turn && !isPaused && !onBreak}
 	/>
-	<div class="flex justify-between items-center m-4">
+	<div class="flex justify-between items-center m-2">
 		<button on:click={togglePause}>
 			<Fa
 				icon={isPaused ? faPlayCircle : faPauseCircle}
