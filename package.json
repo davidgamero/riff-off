@@ -40,6 +40,7 @@
 		"@fortawesome/free-solid-svg-icons": "^6.3.0",
 		"canvas-confetti": "^1.6.0",
 		"require": "^0.4.4",
-		"svelte-fa": "^3.0.3"
+		"svelte-fa": "^3.0.3",
+		"svelte-media-queries": "^1.5.4"
 	}
 }

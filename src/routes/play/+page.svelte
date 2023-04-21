@@ -20,8 +20,6 @@
 	let isPaused = false;
 	let isPlayer1Turn = true;
 	let onBreak = false;
-	let newGoal: string;
-	let newDuration: string;
 	let newDifficulty: string;
 
 	let breakSeconds = 4;
@@ -111,7 +109,7 @@
 	}
 </script>
 
-<div class="h-full flex flex-col justify-between align-middle p-6">
+<div class="h-full flex flex-col justify-between align-middle p-6 dark:bg-gray-900">
 	<PlayButton
 		flipped={true}
 		score={teamRedScore}
@@ -123,7 +121,7 @@
 			<Fa
 				icon={isPaused ? faPlayCircle : faPauseCircle}
 				size="3x"
-				class="text-gray-500 hover:text-gray-600"
+				class="text-gray-500 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-400"
 			/>
 		</button>
 		<button on:click={resetTime}>
@@ -137,7 +135,11 @@
 			/>
 		</button>
 		<button on:click={showSettingsModal}>
-			<Fa icon={faCog} size="3x" color="gray" />
+			<Fa
+				icon={faCog}
+				size="3x"
+				class="text-gray-500 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-400"
+			/>
 		</button>
 	</div>
 	<PlayButton
