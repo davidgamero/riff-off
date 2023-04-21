@@ -3,7 +3,7 @@
 </script>
 
 <div class="dark:bg-gray-900 h-screen">
-	<div class="max-w-md mx-auto">
+	<div class="max-w-md mx-auto h-screen p-4">
 		<slot />
 	</div>
 </div>

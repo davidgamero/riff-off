@@ -5,7 +5,7 @@
 </script>
 
 <div>
-	<h2 class="text-center dark:text-gray-300 text-xl mb-2">{name}</h2>
+	<h2 class="text-center dark:text-gray-300 text-xl mb-1">{name}</h2>
 	<div class="flex justify-around">
 		{#each values as value}
 			<li class="grow">

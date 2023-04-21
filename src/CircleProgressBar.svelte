@@ -18,7 +18,9 @@
 
 	// Adapt the logic according to the approach
 	$: background = `radial-gradient(${matches ? 'rgb(17 24 39)' : 'white'} 50%, transparent 51%),
-    conic-gradient(transparent 0deg ${angle}deg, gainsboro ${angle}deg 360deg),
+    conic-gradient(
+			transparent 0deg ${angle}deg, 
+			${matches ? 'rgb(75 85 99)' : 'rgb(156 163 175)'} ${angle}deg 360deg),
 		conic-gradient(${firstColor}, 100grad, ${secondColor});`;
 
 	$: cssVarStyles = `--background:${background}`;

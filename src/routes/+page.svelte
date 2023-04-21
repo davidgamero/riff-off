@@ -15,6 +15,7 @@
 		bind:selectedDuration={duration}
 		bind:selectedDifficulty={difficulty}
 	/>
+
 	<Button
 		link="/play?duration={duration}&difficulty={difficulty}&goal={goal}"
 		text="Start a new game"
