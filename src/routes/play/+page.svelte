@@ -8,6 +8,7 @@
 	import wordlist from '../../words.json';
 	import Settings from '../../Settings.svelte';
 	import Modal from '../../Modal.svelte';
+	import ScoreInput from '../../ScoreInput.svelte';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 
@@ -65,13 +66,13 @@
 				// somebody missed a word
 				if (isPlayer1Turn) {
 					teamRedScore += 1;
-					if (teamRedScore == goal) {
+					if (teamRedScore >= goal) {
 						// victory screen
 						goto('/win?winner=red');
 					}
 				} else {
 					teamBlueScore += 1;
-					if (teamBlueScore == goal) {
+					if (teamBlueScore >= goal) {
 						//victory screen
 						goto('/win?winner=blue');
 					}
@@ -150,6 +151,10 @@
 </div>
 
 <Modal bind:showModal>
+	<div class="flex justify-around mb-2">
+		<ScoreInput id="teamRedScore" color="Red" bind:score={teamRedScore}/>
+		<ScoreInput id="teamBlueScore" color="Blue" bind:score={teamBlueScore} />
+	</div>
 	<Settings
 		bind:selectedGoal={queryGoal}
 		bind:selectedDuration={queryDuration}

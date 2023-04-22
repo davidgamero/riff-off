@@ -16,10 +16,6 @@
 >
 	<div on:click|stopPropagation class="dark:bg-gray-900">
 		<slot name="header" />
-		<!-- svelte-ignore a11y-autofocus -->
-		<button autofocus on:click={() => dialog.close()}>
-			<Fa icon={faWindowClose} size="2x" class="text-blue-500" />
-		</button>
 		<slot />
 
 		<button
